@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "lab-testing-02-pytest"
+version = "0.1.0"
+description = "Лабораторна робота: тестування з бібліотекою pytest"
+authors = ["Бейгул Володимир"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+python_files = ["test_*.py"]
+pythonpath = ["."]
+norecursedirs = ["broken_examples", ".git", "__pycache__"]
+markers = [
+    "unit: швидкі юніт-тести",
+    "slow: повільні тести",
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
